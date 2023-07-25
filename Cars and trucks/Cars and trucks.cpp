@@ -12,29 +12,41 @@
 using namespace std;
 Vehicles VehicleInformation();
 Cars CarInformation();
+Trucks TruckInformation();
 int main()
 {
-	const int MaxVehicles = 100;
-	Vehicles List[MaxVehicles];
-	Cars Work[MaxVehicles];
+	const int MaxVehicles = 200;
+	Vehicles VehiclesArrayList[MaxVehicles];
+	Cars CarArrayList[MaxVehicles];
+	Trucks TruckArrayList[MaxVehicles];
 	Vehicles Veh; 
 	Trucks Tru;
-	List[0] = VehicleInformation();
 
 	cout << "Vehicle Program\n\n"
-		<< "Vehicle Information: \n"
-		<< "Manufacturer: " << List[0].VehicleManufacturer()
-		<< "\nYear built: " << List[0].VehicleYear() << endl << endl;
+		
+		<< "Vehicle:\n";
+	VehiclesArrayList[0] = VehicleInformation();
+	cout << "Vehicle Information: \n"
+		<< "Manufacturer: " << VehiclesArrayList[0].VehicleManufacturer()
+		<< "\nYear built: " << VehiclesArrayList[0].VehicleYear() << endl << endl;
 
 	cout << "Car:\n";
-	List[1] = VehicleInformation();
-	Work[0] = CarInformation();
+	VehiclesArrayList[1] = VehicleInformation();
+	CarArrayList[0] = CarInformation();
 	cout << "Vehicle Information: \n"
-		<< "Manufacturer: " << List[1].VehicleManufacturer()
-		<< "\nYear built: " << List[1].VehicleYear()
-		<< "\nDoors: " << Work[0].ReturnHowManyDoors();
+		<< "Manufacturer: " << VehiclesArrayList[1].VehicleManufacturer()
+		<< "\nYear built: " << VehiclesArrayList[1].VehicleYear()
+		<< "\nDoors: " << CarArrayList[0].ReturnHowManyDoors() << endl << endl;
 
-
+	cin.ignore(); //the cin.ignore(); in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
+	cout << "Trucks:\n";
+	VehiclesArrayList[2] = VehicleInformation();
+	TruckArrayList[0] = TruckInformation();
+	cout << "Vehicle Information: \n"
+		<< "Manufacturer: " << VehiclesArrayList[2].VehicleManufacturer()
+		<< "\nYear built: " << VehiclesArrayList[2].VehicleYear()
+		<< "\nTowing capacity: " << TruckArrayList[0].ReturnTowingCapcity();
+	
 	return 0;
 }
 
@@ -46,8 +58,9 @@ Vehicles  VehicleInformation() {
 	getline(cin, Manufacturer);
 	cout << "Enter the year built: ";
 	cin >> Year;
-	Veh.StoreVehicleInformation(Manufacturer, Year);
 	cin.ignore();
+	Veh.StoreVehicleInformation(Manufacturer, Year);
+	
 	return Veh;
 }
 
