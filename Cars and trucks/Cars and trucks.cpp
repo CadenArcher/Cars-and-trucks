@@ -1,20 +1,70 @@
-// Cars and trucks.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
-#include <iostream>
 
+#include <random>
+#include<cstring>
+#include<string>
+#include <iomanip>
+#include<iostream>
+#include <fstream>
+#include "Cars.h"
+#include "Trucks.h"
+#include "Vehicles.h"
+using namespace std;
+Vehicles VehicleInformation();
+Cars CarInformation();
 int main()
 {
-    std::cout << "Hello World!\n";
+	const int MaxVehicles = 100;
+	Vehicles List[MaxVehicles];
+	Cars Work[MaxVehicles];
+	Vehicles Veh; 
+	Trucks Tru;
+	List[0] = VehicleInformation();
+
+	cout << "Vehicle Program\n\n"
+		<< "Vehicle Information: \n"
+		<< "Manufacturer: " << List[0].VehicleManufacturer()
+		<< "\nYear built: " << List[0].VehicleYear() << endl << endl;
+
+	cout << "Car:\n";
+	List[1] = VehicleInformation();
+	Work[0] = CarInformation();
+	cout << "Vehicle Information: \n"
+		<< "Manufacturer: " << List[1].VehicleManufacturer()
+		<< "\nYear built: " << List[1].VehicleYear()
+		<< "\nDoors: " << Work[0].ReturnHowManyDoors();
+
+
+	return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+Vehicles  VehicleInformation() {
+	Vehicles Veh;
+	int Year;
+	string Manufacturer;
+	cout << "Enter the manufacturer: ";
+	getline(cin, Manufacturer);
+	cout << "Enter the year built: ";
+	cin >> Year;
+	Veh.StoreVehicleInformation(Manufacturer, Year);
+	cin.ignore();
+	return Veh;
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+Trucks TruckInformation() {
+	Trucks Tru;
+	int TowingCapacity;
+	cout << "Enter the towing capacity";
+	cin >> TowingCapacity;
+	Tru.StoreTowingCapacity(TowingCapacity);
+	return Tru;
+}
+
+Cars CarInformation() {
+	Cars Car;
+	int HowManyDoors;
+	cout << "Enter the number of doors: ";
+	cin >> HowManyDoors;
+	Car.SaveHowManyDoors(HowManyDoors);
+	return Car;
+}
