@@ -17,4 +17,5 @@ private:
 public:
 	void StoreTowingCapacity(int);
 	int ReturnTowingCapcity();
+	void DisplayTruckInfo(string, int);
 };

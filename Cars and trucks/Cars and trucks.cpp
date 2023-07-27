@@ -10,7 +10,7 @@
 #include "Trucks.h"
 #include "Vehicles.h"
 using namespace std;
-Vehicles VehicleInformation();
+Vehicles VehicleInformation(string&,int&);
 Cars CarInformation();
 Trucks TruckInformation();
 int main()
@@ -21,55 +21,49 @@ int main()
 	Trucks TruckArrayList[MaxVehicles];
 	Vehicles Veh; 
 	Trucks Tru;
+	string Manufacturer;
+	int Year;
 
-	cout << "Vehicle Program\n\n"
-		
-		<< "Vehicle:\n";
-	VehiclesArrayList[0] = VehicleInformation();
-	cout << "Vehicle Information: \n"
-		<< "Manufacturer: " << VehiclesArrayList[0].VehicleManufacturer()
-		<< "\nYear built: " << VehiclesArrayList[0].VehicleYear() << endl << endl;
+	VehiclesArrayList[0] = VehicleInformation(Manufacturer, Year);
+	cout << "Vehicle Information: \n";
+	VehiclesArrayList[0].DisplayInfo();
 
-	cout << "Car:\n";
-	VehiclesArrayList[1] = VehicleInformation();
+	cout << "\nCar:\n";
+	VehicleInformation(Manufacturer, Year);
 	CarArrayList[0] = CarInformation();
-	cout << "Vehicle Information: \n"
-		<< "Manufacturer: " << VehiclesArrayList[1].VehicleManufacturer()
-		<< "\nYear built: " << VehiclesArrayList[1].VehicleYear()
-		<< "\nDoors: " << CarArrayList[0].ReturnHowManyDoors() << endl << endl;
+	cout << "Vehicle Information: \n";
+	CarArrayList[0].DisplayCarInfo(Manufacturer,Year);
 
-	cin.ignore(); //the cin.ignore(); in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
-	cout << "Trucks:\n";
-	VehiclesArrayList[2] = VehicleInformation();
+	cin.ignore(); //the cin.ignore in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
+	cout << "\nTrucks:\n";
+	VehicleInformation(Manufacturer, Year);
 	TruckArrayList[0] = TruckInformation();
-	cout << "Vehicle Information: \n"
-		<< "Manufacturer: " << VehiclesArrayList[2].VehicleManufacturer()
-		<< "\nYear built: " << VehiclesArrayList[2].VehicleYear()
-		<< "\nTowing capacity: " << TruckArrayList[0].ReturnTowingCapcity();
-	
+	cout << "Vehicle Information: \n";
+	TruckArrayList[0].DisplayTruckInfo(Manufacturer, Year);
+
 	return 0;
 }
 
-Vehicles  VehicleInformation() {
+Vehicles  VehicleInformation(string& Manufacturer, int& Year) {
 	Vehicles Veh;
-	int Year;
-	string Manufacturer;
+	
 	cout << "Enter the manufacturer: ";
 	getline(cin, Manufacturer);
 	cout << "Enter the year built: ";
 	cin >> Year;
 	cin.ignore();
 	Veh.StoreVehicleInformation(Manufacturer, Year);
-	
+
 	return Veh;
 }
 
 Trucks TruckInformation() {
 	Trucks Tru;
 	int TowingCapacity;
-	cout << "Enter the towing capacity";
+	cout << "Enter the towing capacity: ";
 	cin >> TowingCapacity;
 	Tru.StoreTowingCapacity(TowingCapacity);
+
 	return Tru;
 }
 
@@ -79,5 +73,6 @@ Cars CarInformation() {
 	cout << "Enter the number of doors: ";
 	cin >> HowManyDoors;
 	Car.SaveHowManyDoors(HowManyDoors);
+
 	return Car;
 }

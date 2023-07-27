@@ -1,6 +1,6 @@
 #include <random>
 #include<cstring>
-#include<string>
+#include<string>f
 #include <iomanip>
 #include<iostream>
 #include <fstream>
@@ -13,7 +13,8 @@ private:
 	int YearBuilt;
 
 public:
-	void StoreVehicleInformation(string, int);
-	string VehicleManufacturer();
-	int VehicleYear();
+    void StoreVehicleInformation(string, int);
+    string VehicleManufacturer();
+    int VehicleYear();
+    virtual void DisplayInfo();
 };

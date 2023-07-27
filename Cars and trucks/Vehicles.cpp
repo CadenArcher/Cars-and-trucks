@@ -22,3 +22,8 @@ string Vehicles::VehicleManufacturer() {
 int Vehicles::VehicleYear() {
 	return YearBuilt;
 }
+
+void Vehicles::DisplayInfo() {
+	cout << "Manufacturer: " << Manufacturer << endl;
+	cout << "Year Built: " << YearBuilt << endl;
+}

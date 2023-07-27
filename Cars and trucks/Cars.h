@@ -16,4 +16,5 @@ private:
 public:
 	void SaveHowManyDoors(int);
 	int ReturnHowManyDoors();
+	void DisplayCarInfo(string, int);
 };
