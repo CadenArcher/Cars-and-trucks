@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Cars {
+class Cars:public Vehicles {
 private:
 	
 	int HowManyDoors;
