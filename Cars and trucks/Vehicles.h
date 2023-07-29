@@ -18,5 +18,5 @@ public:
     void StoreVehicleInformation(string, int);
     string VehicleManufacturer();
     int VehicleYear();
-    virtual void DisplayInfo();
+    void DisplayInfo();
 };

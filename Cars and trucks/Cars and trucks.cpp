@@ -9,20 +9,18 @@
 #include "Cars.h"
 #include "Trucks.h"
 #include "Vehicles.h"
+
 using namespace std;
-Vehicles VehicleInformation(string&,int&);
-Cars CarInformation();
+void VehicleInformation();
+void CarInformation();
 void TruckInformation();
+
 int main()
 {
-	const int MaxVehicles = 1;
-	Vehicles VehiclesArrayList[MaxVehicles];
-	Cars CarArrayList[MaxVehicles];
-	Trucks TruckArrayList[MaxVehicles];
-	Vehicles Veh; 
-
 	
 
+	VehicleInformation();
+	CarInformation();
 	TruckInformation();
 
  //the cin.ignore in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
@@ -31,46 +29,73 @@ int main()
 	return 0;
 }
 
-Vehicles  VehicleInformation(string& Manufacturer, int& Year) {
-	Vehicles Veh;
+void VehicleInformation() {
+	Vehicles Vehicle;
+	string  Manufacturer;
+	int Year;
 	
 	cout << "Enter the manufacturer: ";
 	getline(cin, Manufacturer);
 	cout << "Enter the year built: ";
 	cin >> Year;
 	cin.ignore();
-	Veh.StoreVehicleInformation(Manufacturer, Year);
-
-	return Veh;
+	Vehicle.StoreVehicleInformation(Manufacturer, Year);
+	Vehicle.DisplayInfo();
+	cout << endl;
 }
 
 void TruckInformation() {
 	string Manufacturer;
 	int Year;
+	Trucks Truck;
+	int TowingCapacity;
+	cin.ignore();
 	cout << "Enter the manufacturer: ";
 	getline(cin, Manufacturer);
+
 	cout << "Enter the year built: ";
 	cin >> Year;
-	cin.ignore();
-	Trucks Tru;
-	int TowingCapacity;
+	
+	
+	
 	cout << "Enter the towing capacity: ";
 	cin >> TowingCapacity;
-	cout << TowingCapacity;
-	Tru.StoreTowingCapacity(TowingCapacity);
+
+	Truck.StoreTowingCapacity(TowingCapacity);
+
 	cout << "\nTrucks:\n";
-	Tru.StoreVehicleInformation(Manufacturer, Year);
+	Truck.StoreVehicleInformation(Manufacturer, Year);
+
 	cout << "Vehicle Information: \n";
-	Tru.DisplayTruckInfo();
+	Truck.DisplayTruckInfo();
+	cout << endl;
 
 }
 
-Cars CarInformation() {
+void CarInformation() {
+	string Manufacturer;
+	int Year;
 	Cars Car;
 	int HowManyDoors;
+
+	cout << "Enter the manufacturer: ";
+	getline(cin, Manufacturer);
+
+	cout << "Enter the year built: ";
+	cin >> Year;
+	cin.ignore();
+
 	cout << "Enter the number of doors: ";
 	cin >> HowManyDoors;
+
 	Car.SaveHowManyDoors(HowManyDoors);
 
-	return Car;
+	cout << "\Cars:\n";
+	Car.StoreVehicleInformation(Manufacturer, Year);
+
+	cout << "Vehicle Information: \n";
+	Car.DisplayCarInfo();
+	cout << endl;
+
+
 }

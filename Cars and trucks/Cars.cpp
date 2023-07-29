@@ -17,7 +17,7 @@ int Cars::ReturnHowManyDoors() {
 	return HowManyDoors;
 }
 
-void Cars::DisplayCarInfo(string Man, int Year) {
+void Cars::DisplayCarInfo() {
 	DisplayInfo();
 	cout << "Number of Doors: " << HowManyDoors << endl;
 }

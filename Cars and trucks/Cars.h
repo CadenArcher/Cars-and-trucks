@@ -5,6 +5,7 @@
 #include <iomanip>
 #include<iostream>
 #include <fstream>
+#include "Vehicles.h"
 
 using namespace std;
 
@@ -16,5 +17,5 @@ private:
 public:
 	void SaveHowManyDoors(int);
 	int ReturnHowManyDoors();
-	void DisplayCarInfo(string, int);
+	void DisplayCarInfo();
 };
