@@ -1,6 +1,8 @@
+#pragma once
+
 #include <random>
 #include<cstring>
-#include<string>f
+#include<string>
 #include <iomanip>
 #include<iostream>
 #include <fstream>

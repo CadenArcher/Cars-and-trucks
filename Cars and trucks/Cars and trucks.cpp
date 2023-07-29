@@ -12,34 +12,21 @@
 using namespace std;
 Vehicles VehicleInformation(string&,int&);
 Cars CarInformation();
-Trucks TruckInformation();
+void TruckInformation();
 int main()
 {
-	const int MaxVehicles = 200;
+	const int MaxVehicles = 1;
 	Vehicles VehiclesArrayList[MaxVehicles];
 	Cars CarArrayList[MaxVehicles];
 	Trucks TruckArrayList[MaxVehicles];
 	Vehicles Veh; 
-	Trucks Tru;
-	string Manufacturer;
-	int Year;
 
-	VehiclesArrayList[0] = VehicleInformation(Manufacturer, Year);
-	cout << "Vehicle Information: \n";
-	VehiclesArrayList[0].DisplayInfo();
+	
 
-	cout << "\nCar:\n";
-	VehicleInformation(Manufacturer, Year);
-	CarArrayList[0] = CarInformation();
-	cout << "Vehicle Information: \n";
-	CarArrayList[0].DisplayCarInfo(Manufacturer,Year);
+	TruckInformation();
 
-	cin.ignore(); //the cin.ignore in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
-	cout << "\nTrucks:\n";
-	VehicleInformation(Manufacturer, Year);
-	TruckArrayList[0] = TruckInformation();
-	cout << "Vehicle Information: \n";
-	TruckArrayList[0].DisplayTruckInfo(Manufacturer, Year);
+ //the cin.ignore in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
+	
 
 	return 0;
 }
@@ -57,14 +44,25 @@ Vehicles  VehicleInformation(string& Manufacturer, int& Year) {
 	return Veh;
 }
 
-Trucks TruckInformation() {
+void TruckInformation() {
+	string Manufacturer;
+	int Year;
+	cout << "Enter the manufacturer: ";
+	getline(cin, Manufacturer);
+	cout << "Enter the year built: ";
+	cin >> Year;
+	cin.ignore();
 	Trucks Tru;
 	int TowingCapacity;
 	cout << "Enter the towing capacity: ";
 	cin >> TowingCapacity;
+	cout << TowingCapacity;
 	Tru.StoreTowingCapacity(TowingCapacity);
+	cout << "\nTrucks:\n";
+	Tru.StoreVehicleInformation(Manufacturer, Year);
+	cout << "Vehicle Information: \n";
+	Tru.DisplayTruckInfo();
 
-	return Tru;
 }
 
 Cars CarInformation() {
