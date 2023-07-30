@@ -9,16 +9,16 @@
 #include "Vehicles.h"
 
 
-void Cars::SaveHowManyDoors(int HowManyDoorsAreOnTheCar) {
+void Cars::SaveHowManyDoors(int HowManyDoorsAreOnTheCar) {//store how many doors
 	HowManyDoors = HowManyDoorsAreOnTheCar;
 }
 
-int Cars::ReturnHowManyDoors() {
+int Cars::ReturnHowManyDoors() {//returns how many doors the car has
 	return HowManyDoors;
 }
 
-void Cars::DisplayCarInfo() {
+void Cars::DisplayCarInfo() {//displays the inherited informtion and the amount of doors the car has 
 	DisplayInfo();
-	cout << "Number of Doors: " << HowManyDoors << endl;
+	cout << "Number of Doors: " << ReturnHowManyDoors() << endl;
 }
 

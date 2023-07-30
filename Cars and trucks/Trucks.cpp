@@ -8,7 +8,7 @@
 #include "Trucks.h"
 #include "Vehicles.h"
 
-void Trucks::StoreTowingCapacity( int MaxTowAmount) {
+void Trucks::StoreTowingCapacity( int MaxTowAmount) {//Sotre the towing capcity
 	
 	TowingCapacity = MaxTowAmount;
 	
@@ -16,11 +16,11 @@ void Trucks::StoreTowingCapacity( int MaxTowAmount) {
 
 
 
-int Trucks::ReturnTowingCapcity() {
+int Trucks::ReturnTowingCapcity() {//displays the towing capcity 
 	return TowingCapacity;
 }
 
-void Trucks::DisplayTruckInfo() {
+void Trucks::DisplayTruckInfo() {//displays the inherited informtion and the towing capacity
 	DisplayInfo();
 	cout << "Towing Capacity: " << ReturnTowingCapcity() << endl;
 }

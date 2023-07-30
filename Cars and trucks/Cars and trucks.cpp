@@ -1,4 +1,10 @@
+/*
+Caden Archer
+7/30/2023
+Name: Cars and Trucks
+Discription: Using a class system to log and input information about Vehicles so the Car.h and the Truck.h can inheirent the information for it
 
+*/
 
 #include <random>
 #include<cstring>
@@ -23,13 +29,13 @@ int main()
 	CarInformation();
 	TruckInformation();
 
- //the cin.ignore in VehicleInformation wouldn't work for the truck portion, had to add a extra one here
+ 
 	
 
 	return 0;
 }
 
-void VehicleInformation() {
+void VehicleInformation() {//Has the use input infoirmation about the Year and Manufactuere for the Vehicle class
 	Vehicles Vehicle;
 	string  Manufacturer;
 	int Year;
@@ -44,7 +50,7 @@ void VehicleInformation() {
 	cout << endl;
 }
 
-void TruckInformation() {
+void TruckInformation() { //Has the user input the towing capcity into the class and inherit the Vehicle informtion before displying it 
 	string Manufacturer;
 	int Year;
 	Trucks Truck;
@@ -63,7 +69,7 @@ void TruckInformation() {
 
 	Truck.StoreTowingCapacity(TowingCapacity);
 
-	cout << "\nTrucks:\n";
+	cout << "Trucks:\n";
 	Truck.StoreVehicleInformation(Manufacturer, Year);
 
 	cout << "Vehicle Information: \n";
@@ -72,7 +78,7 @@ void TruckInformation() {
 
 }
 
-void CarInformation() {
+void CarInformation() {//Has the user input the amount of car door into the class and inherit the Vehicle informtion before displying it 
 	string Manufacturer;
 	int Year;
 	Cars Car;
