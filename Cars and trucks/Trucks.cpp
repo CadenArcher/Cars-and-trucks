@@ -8,12 +8,8 @@
 #include "Trucks.h"
 #include "Vehicles.h"
 
-void Trucks::StoreTowingCapacity( int MaxTowAmount) {//Sotre the towing capcity
-	
-	TowingCapacity = MaxTowAmount;
-	
-};
 
+Trucks::Trucks(string manufacturer, int year, int doors) : Vehicles(manufacturer, year), TowingCapacity(doors) {}
 
 
 int Trucks::ReturnTowingCapcity() {//displays the towing capcity 

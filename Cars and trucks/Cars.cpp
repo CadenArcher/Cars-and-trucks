@@ -9,9 +9,7 @@
 #include "Vehicles.h"
 
 
-void Cars::SaveHowManyDoors(int HowManyDoorsAreOnTheCar) {//store how many doors
-	HowManyDoors = HowManyDoorsAreOnTheCar;
-}
+Cars::Cars(string manufacturer, int year, int doors) : Vehicles(manufacturer, year), HowManyDoors(doors) {}
 
 int Cars::ReturnHowManyDoors() {//returns how many doors the car has
 	return HowManyDoors;

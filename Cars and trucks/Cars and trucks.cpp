@@ -36,7 +36,7 @@ int main()
 }
 
 void VehicleInformation() {//Has the use input infoirmation about the Year and Manufactuere for the Vehicle class
-	Vehicles Vehicle;
+	
 	string  Manufacturer;
 	int Year;
 	
@@ -45,7 +45,7 @@ void VehicleInformation() {//Has the use input infoirmation about the Year and M
 	cout << "Enter the year built: ";
 	cin >> Year;
 	cin.ignore();
-	Vehicle.StoreVehicleInformation(Manufacturer, Year);
+	Vehicles Vehicle(Manufacturer, Year);
 	Vehicle.DisplayInfo();
 	cout << endl;
 }
@@ -53,7 +53,7 @@ void VehicleInformation() {//Has the use input infoirmation about the Year and M
 void TruckInformation() { //Has the user input the towing capcity into the class and inherit the Vehicle informtion before displying it 
 	string Manufacturer;
 	int Year;
-	Trucks Truck;
+	
 	int TowingCapacity;
 	cin.ignore();
 	cout << "Enter the manufacturer: ";
@@ -67,10 +67,9 @@ void TruckInformation() { //Has the user input the towing capcity into the class
 	cout << "Enter the towing capacity: ";
 	cin >> TowingCapacity;
 
-	Truck.StoreTowingCapacity(TowingCapacity);
+	Trucks Truck(Manufacturer, Year, TowingCapacity);
 
 	cout << "Trucks:\n";
-	Truck.StoreVehicleInformation(Manufacturer, Year);
 
 	cout << "Vehicle Information: \n";
 	Truck.DisplayTruckInfo();
@@ -81,7 +80,7 @@ void TruckInformation() { //Has the user input the towing capcity into the class
 void CarInformation() {//Has the user input the amount of car door into the class and inherit the Vehicle informtion before displying it 
 	string Manufacturer;
 	int Year;
-	Cars Car;
+	
 	int HowManyDoors;
 
 	cout << "Enter the manufacturer: ";
@@ -94,10 +93,10 @@ void CarInformation() {//Has the user input the amount of car door into the clas
 	cout << "Enter the number of doors: ";
 	cin >> HowManyDoors;
 
-	Car.SaveHowManyDoors(HowManyDoors);
+	Cars Car(Manufacturer, Year, HowManyDoors);
 
 	cout << "\Cars:\n";
-	Car.StoreVehicleInformation(Manufacturer, Year);
+
 
 	cout << "Vehicle Information: \n";
 	Car.DisplayCarInfo();

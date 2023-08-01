@@ -15,7 +15,7 @@ private:
 	int YearBuilt;
 
 public:
-    void StoreVehicleInformation(string, int);
+    Vehicles(string manufacturer, int year);
     string VehicleManufacturer();
     int VehicleYear();
     void DisplayInfo();

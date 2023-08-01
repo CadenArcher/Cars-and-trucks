@@ -7,12 +7,7 @@
 #include "Vehicles.h"
 using namespace std;
 
-void Vehicles::StoreVehicleInformation(string Make, int Year) {//store the manufacuter and year built
-	
-	Manufacturer = Make;
-	YearBuilt = Year;
-	
-};
+Vehicles::Vehicles(string manufacturer, int year) : Manufacturer(manufacturer), YearBuilt(year) {}
 
 string Vehicles::VehicleManufacturer() {//output the manufacturer
 	return Manufacturer;

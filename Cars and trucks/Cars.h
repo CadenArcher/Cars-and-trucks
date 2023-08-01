@@ -15,7 +15,7 @@ private:
 	int HowManyDoors;
 
 public:
-	void SaveHowManyDoors(int);
+	Cars(string manufacturer, int year, int doors);
 	int ReturnHowManyDoors();
 	void DisplayCarInfo();
 };
